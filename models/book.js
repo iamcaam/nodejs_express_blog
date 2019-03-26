@@ -20,9 +20,9 @@ var BookSchema = new Schema({
         type: String,
         require: true
     },    
-    gener: [{
+    genre: [{
         type: Schema.Types.ObjectId,
-        ref: 'Gener'
+        ref: 'Genre'
     }]
 });
 
