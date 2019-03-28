@@ -1,0 +1,23 @@
+<% layout('layout') -%>
+<h1><%= title %></h1>
+
+<ul>
+    <% bookinstance_list.forEach(function(val){%>
+        <li>
+
+                <a href="<%= val.url %>"><%= val.book.title %> : </a>
+                <p>
+                    <%= val.imprint %> - 
+                    <% if ( val.status=='Available' ) { %>
+                        <span> <%= val.status %></span>
+                      <% } else if ( val.status=='Maintenance' ) { %> 
+                        <span> <%= val.status %></span>
+                      <% } else  { %>
+                      <% } %>
+                </p>
+            
+        </li>
+      <%}); %>
+
+
+</ul>

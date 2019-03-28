@@ -33,9 +33,18 @@ exports.index = function(req, res) {
 /* --------------------------- Read --------------------------- */
 
 // Display list of all books.
-exports.book_list = function(req, res) {
-    res.send('Not implemented: Book list');
-};
+exports.book_list = function(req, res, next) {
+
+    Book.find({}, 'title author')
+      .populate('author')
+      .exec(function (err, list_books) {
+        if (err) { return next(err); }
+        //Successful, so render
+        //console.log("list_books: " + list_books);
+        res.render('book_list', { title: 'Book List', book_list: list_books });
+      });
+      
+  };
 
 // Display detail page for a specific book.
 exports.book_detail = function(req, res) {
