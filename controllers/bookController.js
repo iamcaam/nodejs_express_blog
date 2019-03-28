@@ -26,6 +26,7 @@ exports.index = function(req, res) {
         },
     }, function(err, results) {
         res.render('index', { title: 'Local Library Home', error: err, data: results });
+        //console.log("data: " + results.book_instance_count);
     });
 };
 
